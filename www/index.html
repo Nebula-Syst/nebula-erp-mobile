@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Nebula ERP</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header class="top">
+    <img src="icon.png" alt="" class="logo" />
+    <div>
+      <h1>Nebula ERP</h1>
+      <p class="sub">Gestión para granjas de impresión 3D</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="opening" class="card hidden" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Abriendo <strong id="opening-name"></strong>…</p>
+      <button type="button" class="ghost" id="opening-cancel">Cancelar</button>
+    </section>
+
+    <section id="list-section">
+      <div class="section-head">
+        <h2>Tus servidores</h2>
+        <button type="button" class="primary small" id="add-btn">+ Añadir</button>
+      </div>
+      <ul id="servers" class="servers"></ul>
+      <div id="empty" class="card empty hidden">
+        <p><strong>Aún no hay servidores.</strong></p>
+        <p>Añade la dirección donde tienes alojado tu ERP (por ejemplo <code>gestion.tuempresa.com</code>).</p>
+        <button type="button" class="primary" id="empty-add">Añadir servidor</button>
+      </div>
+    </section>
+
+    <section id="form-section" class="card hidden">
+      <h2 id="form-title">Añadir servidor</h2>
+      <form id="server-form" novalidate>
+        <label for="f-url">Dirección</label>
+        <input id="f-url" type="url" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false"
+               placeholder="gestion.tuempresa.com" required />
+        <label for="f-name">Nombre <span class="muted">(opcional)</span></label>
+        <input id="f-name" type="text" placeholder="Mi taller" maxlength="60" />
+        <p id="form-status" class="status" role="status"></p>
+        <div class="actions">
+          <button type="button" class="ghost" id="form-cancel">Cancelar</button>
+          <button type="submit" class="primary" id="form-save">Comprobar y guardar</button>
+        </div>
+        <button type="button" class="link hidden" id="form-force">Guardar igualmente</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Funciona con cualquier servidor FilaOps. Las funciones dependen de la versión instalada en cada servidor.</p>
+    <p class="muted" id="version"></p>
+  </footer>
+
+  <template id="server-item">
+    <li class="server">
+      <button type="button" class="open">
+        <span class="name"></span>
+        <span class="host"></span>
+        <span class="badges"></span>
+      </button>
+      <button type="button" class="more" aria-label="Opciones">⋮</button>
+      <div class="menu hidden">
+        <button type="button" data-act="check">Comprobar</button>
+        <button type="button" data-act="edit">Editar</button>
+        <button type="button" data-act="delete" class="danger">Eliminar</button>
+      </div>
+    </li>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

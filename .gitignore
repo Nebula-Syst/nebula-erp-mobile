@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+# Android — los iconos/splash generados (mipmap-*, drawable-*) SÍ se
+# versionan (npx capacitor-assets generate los regenera si hiciera falta,
+# pero comitearlos evita ese paso extra en CI).
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/captures/
+android/.cxx/
+*.keystore
+*.jks
+
+.DS_Store

@@ -1,0 +1,24 @@
+{
+  "name": "nebula-erp-mobile",
+  "version": "1.0.0",
+  "description": "App móvil (Capacitor) para cualquier servidor FilaOps",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "sync": "cap sync android",
+    "build:debug": "cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/status-bar": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.2",
+    "typescript": "^5.9.3"
+  },
+  "private": true
+}
