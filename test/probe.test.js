@@ -8,7 +8,7 @@ const { normalizeUrl, probeServer } = await import("../www/app.js");
 let server, base;
 const routes = {
   "/nebula/api/v1/setup/status": [200, "application/json", '{"needs_setup":false}'],
-  "/nebula/nebula.json": [200, "application/json", '{"edition":"nebula","features":["i18n-es"]}'],
+  "/nebula/nebula.json": [200, "application/json", '{"edition":"printflow","features":["i18n-es"]}'],
   "/std/api/v1/setup/status": [200, "application/json", '{"needs_setup":false}'],
   "/std/nebula.json": [200, "text/html", "<!doctype html><title>SPA</title>"], // fallback SPA
   "/access/api/v1/setup/status": [200, "text/html", '<form action="https://x.cloudflareaccess.com/cdn-cgi/access/login">'],
@@ -34,9 +34,9 @@ test("normalizeUrl acepta lo que escribe un usuario", () => {
   assert.equal(normalizeUrl(""), null);
 });
 
-test("detecta un servidor con la versión de Nebula", async () => {
+test("detecta un servidor PrintFlow", async () => {
   const r = await probeServer(`${base}/nebula`);
-  assert.deepEqual(r, { kind: "filaops", edition: "nebula", features: ["i18n-es"] });
+  assert.deepEqual(r, { kind: "filaops", edition: "printflow", features: ["i18n-es"] });
 });
 
 test("un FilaOps estándar funciona aunque no tenga nebula.json", async () => {

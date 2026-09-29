@@ -1,16 +1,16 @@
 /*
- * Nebula ERP — pantalla de servidores de la app.
+ * PrintFlow — pantalla de servidores de la app (PrintFlow es un fork modificado de FilaOps).
  *
  * La app no trae la interfaz del ERP: guarda una lista de servidores FilaOps y,
  * al elegir uno, carga SU propia web en el WebView. Así cada servidor muestra sus
- * funciones (las del fork de Nebula o las de un FilaOps estándar) sin recompilar
+ * funciones (las de PrintFlow o las de un FilaOps estándar) sin recompilar
  * la app. Esta página vive en el origen local de Capacitor (https://localhost);
  * los servidores vuelven aquí con el botón atrás o con https://localhost/?select=1.
  */
 
-const STORAGE_KEY = "nebula-erp.servers";
-const LAST_KEY = "nebula-erp.last";
-const AUTO_OPENED_KEY = "nebula-erp.auto-opened"; // sessionStorage: solo en arranque en frío
+const STORAGE_KEY = "printflow.servers";
+const LAST_KEY = "printflow.last";
+const AUTO_OPENED_KEY = "printflow.auto-opened"; // sessionStorage: solo en arranque en frío
 const TIMEOUT_MS = 8000;
 
 const $ = (sel) => document.querySelector(sel);
@@ -120,7 +120,7 @@ export async function probeServer(base) {
 
 function badgeFor(server) {
   if (server.kind === "protected") return ["Con acceso protegido", "warn"];
-  if (server.edition === "nebula") return ["Nebula", "ok"];
+  if (server.edition === "printflow" || server.edition === "nebula") return ["PrintFlow", "ok"];
   if (server.kind === "filaops") return ["FilaOps estándar", "info"];
   return ["Sin verificar", "warn"];
 }
@@ -176,15 +176,15 @@ function pickProbe(r) {
 function describeProbe(r) {
   switch (r.kind) {
     case "filaops":
-      return r.edition === "nebula"
-        ? "Servidor FilaOps con la versión de Nebula. Todas las funciones de la app disponibles."
-        : "Servidor FilaOps estándar. Funciona, pero algunas funciones de Nebula (como el idioma o los ajustes de la app) no estarán.";
+      return r.edition === "printflow" || r.edition === "nebula"
+        ? "Servidor PrintFlow. Todas las funciones de la app disponibles."
+        : "Servidor FilaOps estándar. Funciona, pero algunas funciones de PrintFlow (como el idioma o los ajustes de la app) no estarán.";
     case "protected":
       return "El servidor tiene un acceso protegido (por ejemplo Cloudflare Access). Al abrirlo te pedirá identificarte primero.";
     case "unreachable":
       return "No se ha podido conectar. Revisa la dirección y la conexión.";
     default:
-      return "Responde, pero no parece un servidor FilaOps.";
+      return "Responde, pero no parece un servidor PrintFlow ni FilaOps.";
   }
 }
 

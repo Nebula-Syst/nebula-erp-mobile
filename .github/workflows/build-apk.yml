@@ -70,12 +70,12 @@ jobs:
       - name: Renombrar APK
         run: |
           mkdir -p dist
-          cp android/app/build/outputs/apk/debug/app-debug.apk "dist/nebula-erp-${{ steps.version.outputs.version }}.apk"
+          cp android/app/build/outputs/apk/debug/app-debug.apk "dist/printflow-${{ steps.version.outputs.version }}.apk"
 
       - name: Publicar GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: ${{ steps.version.outputs.version }}
-          files: dist/nebula-erp-${{ steps.version.outputs.version }}.apk
+          files: dist/printflow-${{ steps.version.outputs.version }}.apk
           generate_release_notes: true

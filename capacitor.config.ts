@@ -10,8 +10,8 @@ import type { CapacitorConfig } from '@capacitor/cli';
 // falta: allí manda la web del propio servidor. El botón "atrás" de Android
 // vuelve por el historial hasta la pantalla de servidores.
 const config: CapacitorConfig = {
-  appId: 'com.nebulasyst.erp',
-  appName: 'Nebula ERP',
+  appId: 'com.nebulasyst.printflow',
+  appName: 'PrintFlow',
   webDir: 'www',
   server: {
     androidScheme: 'https',
@@ -20,9 +20,9 @@ const config: CapacitorConfig = {
     allowNavigation: ['*'],
   },
   android: {
-    // Marcador que busca el fork de FilaOps (frontend/src/nebula) para mostrar
+    // Marcador que busca PrintFlow (fork de FilaOps, frontend/src/nebula) para mostrar
     // el botón "Cambiar servidor" en Ajustes.
-    appendUserAgent: 'NebulaErpApp',
+    appendUserAgent: 'PrintFlowApp',
   },
   plugins: {
     // No se sustituye fetch global: las webs remotas usan sus cookies normales.

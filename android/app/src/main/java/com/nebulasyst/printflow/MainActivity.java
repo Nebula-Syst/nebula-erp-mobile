@@ -1,4 +1,4 @@
-package com.nebulasyst.erp;
+package com.nebulasyst.printflow;
 
 import com.getcapacitor.BridgeActivity;
 

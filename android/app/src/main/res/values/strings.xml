@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nebula ERP</string>
-    <string name="title_activity_main">Nebula ERP</string>
-    <string name="package_name">com.nebulasyst.erp</string>
-    <string name="custom_url_scheme">com.nebulasyst.erp</string>
+    <string name="app_name">PrintFlow</string>
+    <string name="title_activity_main">PrintFlow</string>
+    <string name="package_name">com.nebulasyst.printflow</string>
+    <string name="custom_url_scheme">com.nebulasyst.printflow</string>
 </resources>

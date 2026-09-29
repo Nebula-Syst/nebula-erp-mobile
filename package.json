@@ -1,7 +1,7 @@
 {
-  "name": "nebula-erp-mobile",
+  "name": "printflow-mobile",
   "version": "1.0.0",
-  "description": "App móvil (Capacitor) para cualquier servidor FilaOps",
+  "description": "PrintFlow: app móvil (Capacitor) para cualquier servidor PrintFlow o FilaOps",
   "scripts": {
     "test": "node --test test/*.test.js",
     "sync": "cap sync android",

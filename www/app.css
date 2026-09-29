@@ -5,8 +5,8 @@
   --border: #262e48;
   --text: #e8ebf5;
   --muted: #8b93ad;
-  --accent: #4f7cff;
-  --accent-2: #8b5cf6;
+  --accent: #1a9bff;
+  --accent-2: #3dd68c;
   --ok: #22c55e;
   --warn: #f59e0b;
   --info: #38bdf8;
@@ -36,11 +36,12 @@ body {
 
 .top {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   padding: 24px 20px 12px;
 }
-.logo { width: 52px; height: 52px; border-radius: 14px; }
+.brand { height: 44px; width: auto; }
 h1 { font-size: 1.4rem; margin: 0; }
 h2 { font-size: 1.05rem; margin: 0; }
 .sub { margin: 2px 0 0; color: var(--muted); font-size: 0.9rem; }
@@ -194,3 +195,4 @@ button { cursor: pointer; }
 
 .foot { padding: 12px 20px 20px; font-size: 0.8rem; color: var(--muted); text-align: center; }
 .foot p { margin: 4px 0; }
+.foot a { color: var(--muted); }
